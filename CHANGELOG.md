@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.0.1] - 2019-07-27
+### Changed
+- Updated Composer dependencies.
+
 ## [1.0.0] - 2019-07-24
 ### Added
 - The library have been created.
