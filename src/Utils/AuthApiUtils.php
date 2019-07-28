@@ -4,7 +4,7 @@ namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils;
 
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\ApiProxyInterface;
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\AvailableRoute;
-use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AuthMiddleware;
+use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Middleware\AuthMiddleware;
 use CaliforniaMountainSnake\UtilTraits\Curl\HttpResponse;
 
 /**
