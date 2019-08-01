@@ -2,7 +2,9 @@
 
 namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem;
 
-abstract class AuthTelegrambotUserRepository
+use CaliforniaMountainSnake\DatabaseEntities\BaseRepository;
+
+abstract class AuthTelegrambotUserRepository extends BaseRepository
 {
     /**
      * @param string $_telegram_id

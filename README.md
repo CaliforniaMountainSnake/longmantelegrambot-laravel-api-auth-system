@@ -62,7 +62,7 @@ class BaseCommand extends Command {
     }
 }
 ```
-3. Call `$this->assertUserHasAccessToMainRoute()` in the `preExecute()` method and handle the exceptions:
+3. Call `$this->initTelegramParams()`, `$this->reInitUserParams()` and then `$this->assertUserHasAccessToMainRoute()` in the `preExecute()` method and handle the exceptions:
 ```php
 <?php
 class BaseCommand extends Command {
@@ -72,7 +72,8 @@ class BaseCommand extends Command {
     
     public function preExecute(): ServerResponse
     {
-        $this->preExecuteInit();
+        $this->initTelegramParams();
+        $this->reInitUserParams();
 
         try {
             // If user try to execute a wrong command, the exception will throw.
