@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.1.2] - 2019-08-06
+### Fixed
+- Fixed the bug.
+
 ## [1.1.1] - 2019-08-06
 ### Added
 - Added the AuthBotAccessUtils::isPrivacyCorrect() method.

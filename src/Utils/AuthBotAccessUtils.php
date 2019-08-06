@@ -58,7 +58,7 @@ trait AuthBotAccessUtils
      */
     public function isPrivacyCorrect(): bool
     {
-        return !$this->isGroupChatAvailable() && (string)$this->getChatType() === TelegramChatTypeEnum::PRIVATE_CHAT;
+        return !(!$this->isGroupChatAvailable() && (string)$this->getChatType() !== TelegramChatTypeEnum::PRIVATE_CHAT);
     }
 
     /**
