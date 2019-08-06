@@ -52,6 +52,14 @@ trait AuthBotAccessUtils
      */
     abstract protected function isGroupChatAvailable(): bool;
 
+    /**
+     * Не нарушена ли политика запуска команды в групповых чатах?
+     * @return bool
+     */
+    public function isPrivacyCorrect(): bool
+    {
+        return !$this->isGroupChatAvailable() && (string)$this->getChatType() === TelegramChatTypeEnum::PRIVATE_CHAT;
+    }
 
     /**
      * Проверить у юзера наличие прав доступа к основному роуту команды и выбросить исключение, если доступ запрещен.
@@ -65,7 +73,7 @@ trait AuthBotAccessUtils
     public function assertUserHasAccessToMainRoute(?AuthUserEntity $_user): void
     {
         // В первую очередь проверим, можно ли запускать команду в данном типе чата.
-        if (!$this->isGroupChatAvailable() && (string)$this->getChatType() !== TelegramChatTypeEnum::PRIVATE_CHAT) {
+        if (!$this->isPrivacyCorrect()) {
             throw new GroupChatNotAvailableException('This command can not executes in group chats or channels!');
         }
 
