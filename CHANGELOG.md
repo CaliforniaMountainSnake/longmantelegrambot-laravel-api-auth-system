@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.1.0] - 2019-08-06
+### Changed
+- Added the chat type check in the AuthBotAccessUtils::assertUserHasAccessToMainRoute() method.
+
 ## [1.0.3] - 2019-08-01
 ### Changed
 - The README.md has been updated.

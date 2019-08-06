@@ -3,6 +3,9 @@
 namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils;
 
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\AvailableRoute;
+use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils\Exceptions\GroupChatNotAvailableException;
+use CaliforniaMountainSnake\LongmanTelegrambotUtils\Enums\TelegramChatTypeEnum;
+use CaliforniaMountainSnake\LongmanTelegrambotUtils\TelegramUtils;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\ArrayUtils;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\AuthUserAccountTypeAccessUtils;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\AuthUserRoleAccessUtils;
@@ -19,6 +22,8 @@ trait AuthBotAccessUtils
     use AuthUserRoleAccessUtils;
     use AuthUserAccountTypeAccessUtils;
     use ArrayUtils;
+    use TelegramUtils;
+
 
     /**
      * @return AuthRoleService
@@ -42,18 +47,29 @@ trait AuthBotAccessUtils
      */
     abstract protected function getMainRoute(): ?AvailableRoute;
 
+    /**
+     * @return bool
+     */
+    abstract protected function isGroupChatAvailable(): bool;
+
 
     /**
      * Проверить у юзера наличие прав доступа к основному роуту команды и выбросить исключение, если доступ запрещен.
      *
      * @param AuthUserEntity|null $_user
+     * @throws GroupChatNotAvailableException
      * @throws UserAccountTypeNotEqualsException
      * @throws UserRoleNotEqualsException
      * @throws \LogicException
      */
     public function assertUserHasAccessToMainRoute(?AuthUserEntity $_user): void
     {
-        // Если главный роут не задан, команда по-дефолту доступна всем.
+        // В первую очередь проверим, можно ли запускать команду в данном типе чата.
+        if (!$this->isGroupChatAvailable() && (string)$this->getChatType() !== TelegramChatTypeEnum::PRIVATE_CHAT) {
+            throw new GroupChatNotAvailableException('This command can not executes in group chats or channels!');
+        }
+
+        // Если главный роут не задан, команда по-дефолту доступна для всех ролей и всех типов аккаунтов.
         if ($this->getMainRoute() === null) {
             return;
         }
@@ -157,7 +173,7 @@ trait AuthBotAccessUtils
     {
         try {
             $this->assertUserHasAccessToMainRoute($_user);
-        } catch (UserRoleNotEqualsException|UserAccountTypeNotEqualsException $e) {
+        } catch (GroupChatNotAvailableException|UserRoleNotEqualsException|UserAccountTypeNotEqualsException $e) {
             return false;
         }
 

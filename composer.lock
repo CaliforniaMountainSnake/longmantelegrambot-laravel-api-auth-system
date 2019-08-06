@@ -4,26 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08eb2695522c565c450a637121724980",
+    "content-hash": "811650361d388670ee644c40509a253e",
     "packages": [
         {
             "name": "californiamountainsnake/json-response",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CaliforniaMountainSnake/json-response.git",
-                "reference": "82037706797106a121f3c68322ce7614483e7f10"
+                "reference": "e59dd738f2a60ecd8dae760b9a76512b2abd58f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaliforniaMountainSnake/json-response/zipball/82037706797106a121f3c68322ce7614483e7f10",
-                "reference": "82037706797106a121f3c68322ce7614483e7f10",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/json-response/zipball/e59dd738f2a60ecd8dae760b9a76512b2abd58f8",
+                "reference": "e59dd738f2a60ecd8dae760b9a76512b2abd58f8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "illuminate/http": "*",
-                "php": "^7.3.1"
+                "illuminate/http": "~5",
+                "php": "^7.1"
             },
             "require-dev": {
                 "ext-dom": "*",
@@ -46,26 +46,69 @@
                 }
             ],
             "description": "The json-response object for uniformity of responses api",
-            "time": "2019-04-19T12:59:53+00:00"
+            "time": "2019-07-31T13:42:19+00:00"
         },
         {
-            "name": "californiamountainsnake/php-database-entities",
-            "version": "1.0.1",
+            "name": "californiamountainsnake/longmantelegrambot-utils",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/CaliforniaMountainSnake/php-database-entities.git",
-                "reference": "f6566a8e3c8995f9d596d0beffcb87741e5cb83a"
+                "url": "https://github.com/CaliforniaMountainSnake/longmantelegrambot-utils.git",
+                "reference": "9d30558c249dacff369694e11dad710db8ab78ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaliforniaMountainSnake/php-database-entities/zipball/f6566a8e3c8995f9d596d0beffcb87741e5cb83a",
-                "reference": "f6566a8e3c8995f9d596d0beffcb87741e5cb83a",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/longmantelegrambot-utils/zipball/9d30558c249dacff369694e11dad710db8ab78ca",
+                "reference": "9d30558c249dacff369694e11dad710db8ab78ca",
+                "shasum": ""
+            },
+            "require": {
+                "californiamountainsnake/php-simple-telegram-api": "~1.2.0",
+                "longman/telegram-bot": "~0.59",
+                "myclabs/php-enum": "~1.5",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CaliforniaMountainSnake\\LongmanTelegrambotUtils\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CaliforniaMountainSnake",
+                    "email": "CaliforniaMountainSnake1@yandex.ru"
+                }
+            ],
+            "description": "This is the set of util traits intended for the longman/telegram-bot library!",
+            "time": "2019-08-06T13:39:12+00:00"
+        },
+        {
+            "name": "californiamountainsnake/php-database-entities",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CaliforniaMountainSnake/php-database-entities.git",
+                "reference": "bad9963668602119258d805eef774ca37354a9cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/php-database-entities/zipball/bad9963668602119258d805eef774ca37354a9cb",
+                "reference": "bad9963668602119258d805eef774ca37354a9cb",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "myclabs/php-enum": "~1.5",
-                "php": "^7.3.1"
+                "php": "^7.1"
             },
             "require-dev": {
                 "ext-dom": "*",
@@ -88,7 +131,52 @@
                 }
             ],
             "description": "These are php data entities and utils, intended for work with the information from database in oop-style.",
-            "time": "2019-07-10T16:16:44+00:00"
+            "time": "2019-08-01T06:56:18+00:00"
+        },
+        {
+            "name": "californiamountainsnake/php-simple-telegram-api",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CaliforniaMountainSnake/php-simple-telegram-api.git",
+                "reference": "514180f2a56a30fc44748e8f35807ddd4929c98d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/php-simple-telegram-api/zipball/514180f2a56a30fc44748e8f35807ddd4929c98d",
+                "reference": "514180f2a56a30fc44748e8f35807ddd4929c98d",
+                "shasum": ""
+            },
+            "require": {
+                "californiamountainsnake/php-utils": "~1.0.1",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "myclabs/php-enum": "~1.5",
+                "php": "^7.2",
+                "vlucas/phpdotenv": "~3.4"
+            },
+            "require-dev": {
+                "ext-dom": "*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CaliforniaMountainSnake\\SocialNetworksAPI\\Telegram\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CaliforniaMountainSnake",
+                    "email": "CaliforniaMountainSnake1@yandex.ru"
+                }
+            ],
+            "description": "Php realisation of SOME methods of Telegram BOT API.",
+            "time": "2019-08-04T10:10:15+00:00"
         },
         {
             "name": "californiamountainsnake/php-utils",
@@ -136,16 +224,16 @@
         },
         {
             "name": "californiamountainsnake/simple-laravel-auth-system",
-            "version": "2.2.0",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CaliforniaMountainSnake/simple-laravel-auth-system.git",
-                "reference": "3d30483f6620c19299e0fff7f695310c8993e1f0"
+                "reference": "f05ce2551b8ad6d1279c713f175e4d3a59825938"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaliforniaMountainSnake/simple-laravel-auth-system/zipball/3d30483f6620c19299e0fff7f695310c8993e1f0",
-                "reference": "3d30483f6620c19299e0fff7f695310c8993e1f0",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/simple-laravel-auth-system/zipball/f05ce2551b8ad6d1279c713f175e4d3a59825938",
+                "reference": "f05ce2551b8ad6d1279c713f175e4d3a59825938",
                 "shasum": ""
             },
             "require": {
@@ -177,7 +265,7 @@
                 }
             ],
             "description": "A simple realisation of authentication and authorization for Laravel",
-            "time": "2019-07-27T13:08:21+00:00"
+            "time": "2019-07-29T11:02:14+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -248,28 +336,30 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
+                "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "doctrine/coding-standard": "^6.0",
+                "phpstan/phpstan": "^0.11.8",
+                "phpunit/phpunit": "^8.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -283,12 +373,12 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
                     "name": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Johannes Schmitt",
@@ -304,7 +394,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-08T11:03:04+00:00"
+            "time": "2019-07-30T19:33:28+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -653,16 +743,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.29",
+            "version": "v5.8.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "489ae2218c7eb138caac780de584d8df9fe8160b"
+                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/489ae2218c7eb138caac780de584d8df9fe8160b",
-                "reference": "489ae2218c7eb138caac780de584d8df9fe8160b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7ccf0cf63931a8d8391aed90e6fc011381ea6838",
+                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838",
                 "shasum": ""
             },
             "require": {
@@ -796,7 +886,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-16T14:05:28+00:00"
+            "time": "2019-07-30T14:08:47+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1067,16 +1157,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.21.3",
+            "version": "2.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "58bdbbfab17ccd2ec7347b99e997f18232def4dc"
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/58bdbbfab17ccd2ec7347b99e997f18232def4dc",
-                "reference": "58bdbbfab17ccd2ec7347b99e997f18232def4dc",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e",
                 "shasum": ""
             },
             "require": {
@@ -1087,7 +1177,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
                 "kylekatarnls/multi-tester": "^1.1",
-                "phpmd/phpmd": "^2.6",
+                "phpmd/phpmd": "dev-php-7.1-compatibility",
                 "phpstan/phpstan": "^0.11",
                 "phpunit/phpunit": "^7.5 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
@@ -1130,7 +1220,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-07-18T18:47:28+00:00"
+            "time": "2019-07-28T09:02:12+00:00"
         },
         {
             "name": "opis/closure",
@@ -2235,16 +2325,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -2256,7 +2346,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2273,12 +2363,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
                     "name": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -2289,20 +2379,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "f037ea22acfaee983e271dd9c3b8bb4150bd8ad7"
+                "reference": "685968b11e61a347c18bf25db32effa478be610f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/f037ea22acfaee983e271dd9c3b8bb4150bd8ad7",
-                "reference": "f037ea22acfaee983e271dd9c3b8bb4150bd8ad7",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/685968b11e61a347c18bf25db32effa478be610f",
+                "reference": "685968b11e61a347c18bf25db32effa478be610f",
                 "shasum": ""
             },
             "require": {
@@ -2314,7 +2404,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2348,20 +2438,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af"
+                "reference": "6af626ae6fa37d396dc90a399c0ff08e5cfc45b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/c766e95bec706cdd89903b1eda8afab7d7a6b7af",
-                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/6af626ae6fa37d396dc90a399c0ff08e5cfc45b2",
+                "reference": "6af626ae6fa37d396dc90a399c0ff08e5cfc45b2",
                 "shasum": ""
             },
             "require": {
@@ -2375,7 +2465,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2392,12 +2482,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                },
-                {
                     "name": "Laurent Bassin",
                     "email": "laurent@bassin.info"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
@@ -2410,20 +2500,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-03-04T13:44:35+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
-                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
                 "shasum": ""
             },
             "require": {
@@ -2435,7 +2525,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2469,20 +2559,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c"
+                "reference": "04ce3335667451138df4307d6a9b61565560199e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/ab50dcf166d5f577978419edd37aa2bb8eabce0c",
-                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/04ce3335667451138df4307d6a9b61565560199e",
+                "reference": "04ce3335667451138df4307d6a9b61565560199e",
                 "shasum": ""
             },
             "require": {
@@ -2491,7 +2581,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2524,20 +2614,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd"
+                "reference": "2ceb49eaccb9352bff54d22570276bb75ba4a188"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
-                "reference": "d1fb4abcc0c47be136208ad9d68bf59f1ee17abd",
+                "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/2ceb49eaccb9352bff54d22570276bb75ba4a188",
+                "reference": "2ceb49eaccb9352bff54d22570276bb75ba4a188",
                 "shasum": ""
             },
             "require": {
@@ -2546,7 +2636,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -2582,7 +2672,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/process",
