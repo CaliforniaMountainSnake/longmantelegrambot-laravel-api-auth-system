@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "811650361d388670ee644c40509a253e",
+    "content-hash": "fa034399b0bef23b10c1e07a1a31cfcd",
     "packages": [
         {
             "name": "californiamountainsnake/json-response",
@@ -50,16 +50,16 @@
         },
         {
             "name": "californiamountainsnake/longmantelegrambot-utils",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CaliforniaMountainSnake/longmantelegrambot-utils.git",
-                "reference": "9d30558c249dacff369694e11dad710db8ab78ca"
+                "reference": "2819a4f479e3a569dba8a6d536aedd03eb4b49a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaliforniaMountainSnake/longmantelegrambot-utils/zipball/9d30558c249dacff369694e11dad710db8ab78ca",
-                "reference": "9d30558c249dacff369694e11dad710db8ab78ca",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/longmantelegrambot-utils/zipball/2819a4f479e3a569dba8a6d536aedd03eb4b49a3",
+                "reference": "2819a4f479e3a569dba8a6d536aedd03eb4b49a3",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 }
             ],
             "description": "This is the set of util traits intended for the longman/telegram-bot library!",
-            "time": "2019-08-06T13:39:12+00:00"
+            "time": "2019-08-07T11:23:42+00:00"
         },
         {
             "name": "californiamountainsnake/php-database-entities",
@@ -743,16 +743,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.30",
+            "version": "v5.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838"
+                "reference": "24cc1786bd55876fa52380306354772355345efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7ccf0cf63931a8d8391aed90e6fc011381ea6838",
-                "reference": "7ccf0cf63931a8d8391aed90e6fc011381ea6838",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/24cc1786bd55876fa52380306354772355345efd",
+                "reference": "24cc1786bd55876fa52380306354772355345efd",
                 "shasum": ""
             },
             "require": {
@@ -886,7 +886,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-30T14:08:47+00:00"
+            "time": "2019-08-06T15:09:02+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1157,16 +1157,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.22.0",
+            "version": "2.22.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e"
+                "reference": "ec355b933f9b635fbc418c3b351e3886686f5a21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1a0e48b5f656065ba3c265b058b25d36c2162a5e",
-                "reference": "1a0e48b5f656065ba3c265b058b25d36c2162a5e",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ec355b933f9b635fbc418c3b351e3886686f5a21",
+                "reference": "ec355b933f9b635fbc418c3b351e3886686f5a21",
                 "shasum": ""
             },
             "require": {
@@ -1177,7 +1177,7 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
                 "kylekatarnls/multi-tester": "^1.1",
-                "phpmd/phpmd": "dev-php-7.1-compatibility",
+                "phpmd/phpmd": "^2.6",
                 "phpstan/phpstan": "^0.11",
                 "phpunit/phpunit": "^7.5 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
@@ -1220,7 +1220,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-07-28T09:02:12+00:00"
+            "time": "2019-08-07T08:59:53+00:00"
         },
         {
             "name": "opis/closure",

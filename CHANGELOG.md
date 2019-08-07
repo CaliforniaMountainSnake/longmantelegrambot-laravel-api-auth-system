@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.1.3] - 2019-08-07
+### Fixed
+- Fix the mistake in the composer.json dependence.
+
 ## [1.1.2] - 2019-08-06
 ### Fixed
 - Fixed the bug.
