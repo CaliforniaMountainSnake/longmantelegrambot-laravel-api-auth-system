@@ -4,6 +4,7 @@ namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils;
 
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\AvailableRoute;
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils\Exceptions\GroupChatNotAvailableException;
+use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils\Exceptions\PrivateChatNotAvailableException;
 use CaliforniaMountainSnake\LongmanTelegrambotUtils\Enums\TelegramChatTypeEnum;
 use CaliforniaMountainSnake\LongmanTelegrambotUtils\TelegramUtils;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\ArrayUtils;
@@ -32,12 +33,14 @@ trait AuthBotAccessUtils
 
     /**
      * Get command name.
+     *
      * @return string
      */
     abstract public static function getCommandName(): string;
 
     /**
      * Get command description.
+     *
      * @return string
      */
     abstract public static function getCommandDescription(): string;
@@ -50,21 +53,61 @@ trait AuthBotAccessUtils
     /**
      * @return bool
      */
+    abstract protected function isPrivateChatAvailable(): bool;
+
+    /**
+     * @return bool
+     */
     abstract protected function isGroupChatAvailable(): bool;
 
     /**
-     * Не нарушена ли политика запуска команды в групповых чатах?
+     * @param TelegramChatTypeEnum|null $_current_chat_type
+     *
+     * @throws GroupChatNotAvailableException
+     * @throws PrivateChatNotAvailableException
+     */
+    public function assertPrivacyCorrect(?TelegramChatTypeEnum $_current_chat_type = null): void
+    {
+        $currentChatType = (string)($_current_chat_type ?? $this->getChatType());
+        $privateChatTypes = [TelegramChatTypeEnum::PRIVATE_CHAT];
+        $groupChatTypes = [
+            TelegramChatTypeEnum::GROUP_CHAT,
+            TelegramChatTypeEnum::SUPERGROUP_CHAT,
+            TelegramChatTypeEnum::CHANNEL,
+        ];
+
+        if (!$this->isPrivateChatAvailable() && \in_array($currentChatType, $privateChatTypes, true)) {
+            throw new PrivateChatNotAvailableException('This command can not executes in the private chat!');
+        }
+
+        if (!$this->isGroupChatAvailable() && \in_array($currentChatType, $groupChatTypes, true)) {
+            throw new GroupChatNotAvailableException('This command can not executes in group chats or channels!');
+        }
+    }
+
+    /**
+     * Соблюдается ли приватность команды в заданном типе чата?
+     *
+     * @param TelegramChatTypeEnum|null $_current_chat_type
+     *
      * @return bool
      */
-    public function isPrivacyCorrect(): bool
+    public function isPrivacyCorrect(?TelegramChatTypeEnum $_current_chat_type = null): bool
     {
-        return !(!$this->isGroupChatAvailable() && (string)$this->getChatType() !== TelegramChatTypeEnum::PRIVATE_CHAT);
+        try {
+            $this->assertPrivacyCorrect($_current_chat_type);
+        } catch (GroupChatNotAvailableException|PrivateChatNotAvailableException $e) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
      * Проверить у юзера наличие прав доступа к основному роуту команды и выбросить исключение, если доступ запрещен.
      *
      * @param AuthUserEntity|null $_user
+     *
      * @throws GroupChatNotAvailableException
      * @throws UserAccountTypeNotEqualsException
      * @throws UserRoleNotEqualsException
@@ -72,10 +115,8 @@ trait AuthBotAccessUtils
      */
     public function assertUserHasAccessToMainRoute(?AuthUserEntity $_user): void
     {
-        // В первую очередь проверим, можно ли запускать команду в данном типе чата.
-        if (!$this->isPrivacyCorrect()) {
-            throw new GroupChatNotAvailableException('This command can not executes in group chats or channels!');
-        }
+        // В первую очередь проверим приватность.
+        $this->assertPrivacyCorrect();
 
         // Если главный роут не задан, команда по-дефолту доступна для всех ролей и всех типов аккаунтов.
         if ($this->getMainRoute() === null) {
@@ -89,7 +130,7 @@ trait AuthBotAccessUtils
      * Проверить у юзера наличие прав доступа к заданному роуту и выбросить исключение, если доступ запрещен.
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
      *
      * @throws UserAccountTypeNotEqualsException
      * @throws UserRoleNotEqualsException
@@ -108,7 +149,8 @@ trait AuthBotAccessUtils
      * Проверить у роли наличие прав доступа к заданному роуту и выбросить исключение, если доступ запрещен.
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
+     *
      * @throws UserRoleNotEqualsException
      * @throws \LogicException
      */
@@ -125,7 +167,8 @@ trait AuthBotAccessUtils
      * и выбросить исключение, если доступ запрещен.
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
+     *
      * @throws UserAccountTypeNotEqualsException
      * @throws \LogicException
      */
@@ -144,7 +187,8 @@ trait AuthBotAccessUtils
      * Может ли роль юзера запускать данный роут?
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
+     *
      * @return bool
      * @throws \LogicException
      */
@@ -158,7 +202,8 @@ trait AuthBotAccessUtils
      * Может ли тип аккаунта юзера запускать данный роут?
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
+     *
      * @return bool
      * @throws \LogicException
      */
@@ -174,6 +219,7 @@ trait AuthBotAccessUtils
      * Имеет ли данный юзер право доступа к основному роуту команды?
      *
      * @param AuthUserEntity|null $_user
+     *
      * @return bool
      * @throws \LogicException
      */
@@ -192,7 +238,8 @@ trait AuthBotAccessUtils
      * Имеет ли данный юзер право доступа к заданному роуту?
      *
      * @param AuthUserEntity|null $_user
-     * @param AvailableRoute $_route
+     * @param AvailableRoute      $_route
+     *
      * @return bool
      * @throws \LogicException
      */

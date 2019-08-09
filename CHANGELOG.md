@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.2.0] - 2019-08-09
+### Added
+- Added the methods to check private chat privacy in the AuthBotAccessUtils trait.
+
 ## [1.1.3] - 2019-08-07
 ### Fixed
 - Fix the mistake in the composer.json dependence.
