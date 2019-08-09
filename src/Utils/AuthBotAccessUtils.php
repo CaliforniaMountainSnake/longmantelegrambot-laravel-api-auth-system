@@ -109,6 +109,7 @@ trait AuthBotAccessUtils
      * @param AuthUserEntity|null $_user
      *
      * @throws GroupChatNotAvailableException
+     * @throws PrivateChatNotAvailableException
      * @throws UserAccountTypeNotEqualsException
      * @throws UserRoleNotEqualsException
      * @throws \LogicException

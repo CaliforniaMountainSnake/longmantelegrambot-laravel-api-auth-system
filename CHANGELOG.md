@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.2.1] - 2019-08-09
+### Fixed
+- Fixed a little bug in the phpdoc of the AuthBotAccessUtils::assertUserHasAccessToMainRoute().
+
 ## [1.2.0] - 2019-08-09
 ### Added
 - Added the methods to check private chat privacy in the AuthBotAccessUtils trait.
