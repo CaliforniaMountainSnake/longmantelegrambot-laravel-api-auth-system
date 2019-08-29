@@ -2,6 +2,7 @@
 
 namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy;
 
+use CaliforniaMountainSnake\JsonResponse\JsonResponse;
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\Exceptions\ApiProxyException;
 use CaliforniaMountainSnake\UtilTraits\Curl\CurlUtils;
 use CaliforniaMountainSnake\UtilTraits\Curl\HttpResponse;
@@ -17,6 +18,7 @@ class HttpApiProxy implements ApiProxyInterface
 
     /**
      * HttpApiProxy constructor.
+     *
      * @param string $_app_url
      */
     public function __construct(string $_app_url)
@@ -25,10 +27,10 @@ class HttpApiProxy implements ApiProxyInterface
     }
 
     /**
-     * Выполнить запрос к заданноу роуту API.
+     * Execute query to the target api route.
      *
-     * @param AvailableRoute $_rote Роут.
-     * @param array $_params Параметры запроса [опционально].
+     * @param AvailableRoute $_rote   Route.
+     * @param array          $_params Query parameters [optional].
      *
      * @return HttpResponse
      *
@@ -37,10 +39,13 @@ class HttpApiProxy implements ApiProxyInterface
     public function query(AvailableRoute $_rote, array $_params = []): HttpResponse
     {
         $response = $this->httpQuery($_rote->getMethod(), $this->appUrl . '/' . $_rote->getRoute(), $_params);
-        $code     = $response->getCode();
-        if ($code !== 200) {
-            throw new ApiProxyException('Api returns ' . $code . ' http code! Content: "'
-                . \var_export($response->jsonDecode(), true) . '"', $code);
+        $httpCode = $response->getCode();
+        $responseArray = $response->jsonDecode();
+        $apiErrors = ($responseArray === null ? [] : $responseArray[JsonResponse::ERRORS] ?? []);
+
+        if ($httpCode !== JsonResponse::HTTP_OK) {
+            throw new ApiProxyException('Api returns ' . $httpCode . ' http code!'
+                . ' Response: "' . $response->getContent() . '"', $httpCode, null, $apiErrors);
         }
 
         return $response;

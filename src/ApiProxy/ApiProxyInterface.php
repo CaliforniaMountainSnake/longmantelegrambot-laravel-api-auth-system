@@ -2,17 +2,19 @@
 
 namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy;
 
+use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\Exceptions\ApiProxyException;
 use CaliforniaMountainSnake\UtilTraits\Curl\HttpResponse;
 
 interface ApiProxyInterface
 {
     /**
-     * Выполнить запрос к заданноу роуту API.
+     * Execute query to the target api route.
      *
-     * @param AvailableRoute $_rote Роут.
-     * @param array $_params Параметры запроса [опционально].
+     * @param AvailableRoute $_rote   Route.
+     * @param array          $_params Query parameters [optional].
      *
      * @return HttpResponse
+     * @throws ApiProxyException
      */
     public function query(AvailableRoute $_rote, array $_params = []): HttpResponse;
 }

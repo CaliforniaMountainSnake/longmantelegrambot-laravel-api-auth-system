@@ -14,6 +14,7 @@ class AvailableRoute
 
     /**
      * The path to the api route relative the domain root.
+     *
      * @var string
      */
     protected $route;
@@ -22,16 +23,17 @@ class AvailableRoute
      * AvailableRoute constructor.
      *
      * @param RequestMethodEnum $method Http-method.
-     * @param string $route The path to the api route relative the domain root.
+     * @param string            $route  The path to the api route relative the domain root.
      */
     public function __construct(RequestMethodEnum $method, string $route)
     {
         $this->method = $method;
-        $this->route  = $route;
+        $this->route = $route;
     }
 
     /**
      * Get http-method.
+     *
      * @return RequestMethodEnum
      */
     public function getMethod(): RequestMethodEnum
@@ -41,6 +43,7 @@ class AvailableRoute
 
     /**
      * Get the path to the api route relative the domain root.
+     *
      * @return string
      */
     public function getRoute(): string

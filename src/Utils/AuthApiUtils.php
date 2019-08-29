@@ -4,6 +4,7 @@ namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils;
 
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\ApiProxyInterface;
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\AvailableRoute;
+use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\ApiProxy\Exceptions\ApiProxyException;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Middleware\AuthMiddleware;
 use CaliforniaMountainSnake\UtilTraits\Curl\HttpResponse;
 
@@ -23,9 +24,10 @@ trait AuthApiUtils
 
     /**
      * @param AvailableRoute $_rote
-     * @param array $_params
+     * @param array          $_params
      *
      * @return HttpResponse
+     * @throws ApiProxyException
      */
     protected function callApiNotAuth(AvailableRoute $_rote, array $_params = []): HttpResponse
     {
@@ -34,9 +36,10 @@ trait AuthApiUtils
 
     /**
      * @param AvailableRoute $_rote
-     * @param array $_params
+     * @param array          $_params
      *
      * @return HttpResponse
+     * @throws ApiProxyException
      */
     protected function callApiAuth(AvailableRoute $_rote, array $_params = []): HttpResponse
     {

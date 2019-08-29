@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.2.2] - 2019-08-29
+### Added
+- ApiProxyException now contains the array with api errors.
+- Added throwing the ApiProxyException in the ApiProxyInterface's phpdoc.
+### Changed
+- Source code files have been formatted.
+
 ## [1.2.1] - 2019-08-09
 ### Fixed
 - Fixed a little bug in the phpdoc of the AuthBotAccessUtils::assertUserHasAccessToMainRoute().

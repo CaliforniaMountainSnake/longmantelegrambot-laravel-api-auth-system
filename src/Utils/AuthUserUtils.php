@@ -61,14 +61,17 @@ trait AuthUserUtils
      */
     abstract protected function getUserAccountTypeEnumClass(): string;
 
-    
+
+    /**
+     * Init user params.
+     */
     protected function reInitUserParams(): void
     {
-        $userRoleClass        = $this->getUserRoleEnumClass();
+        $userRoleClass = $this->getUserRoleEnumClass();
         $userAccountTypeClass = $this->getUserAccountTypeEnumClass();
 
-        $this->user            = $this->createUserEntity($this->createTelegrambotUserEntity());
-        $this->userRole        = new $userRoleClass($this->getRoleOfUserString($this->getUserEntity()));
+        $this->user = $this->createUserEntity($this->createTelegrambotUserEntity());
+        $this->userRole = new $userRoleClass($this->getRoleOfUserString($this->getUserEntity()));
         $this->userAccountType = new $userAccountTypeClass ($this->getAccountTypeOfUserString($this->getUserEntity()));
     }
 
@@ -108,6 +111,7 @@ trait AuthUserUtils
 
     /**
      * @param AuthTelegrambotUserEntity|null $_user
+     *
      * @return AuthUserEntity|null
      */
     private function createUserEntity(?AuthTelegrambotUserEntity $_user): ?AuthUserEntity
