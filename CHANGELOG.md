@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.2.3] - 2020-01-11
+### Fixed
+- Fixed security vulnerabilities founded by GitHub in dependencies.
+
 ## [1.2.2] - 2019-08-29
 ### Added
 - ApiProxyException now contains the array with api errors.
