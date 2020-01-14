@@ -2,11 +2,12 @@
 
 namespace CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Utils;
 
-use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\AuthTelegrambotUserEntity;
+use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\Authenticator\TelegramAuthenticator;
 use CaliforniaMountainSnake\LongmanTelegrambotLaravelApiAuthSystem\AuthTelegrambotUserRepository;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\AuthUserAccountTypeAccessUtils;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AccessUtils\AuthUserRoleAccessUtils;
-use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AuthUserEntity;
+use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Authenticator\Utils\HasAuthenticatorTrait;
+use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Authenticator\Utils\HasUserTrait;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\AuthUserRepository;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Enums\AuthUserAccountTypeEnum;
 use CaliforniaMountainSnake\SimpleLaravelAuthSystem\Enums\AuthUserRoleEnum;
@@ -19,11 +20,8 @@ trait AuthUserUtils
 {
     use AuthUserRoleAccessUtils;
     use AuthUserAccountTypeAccessUtils;
-
-    /**
-     * @var AuthUserEntity|null
-     */
-    private $user;
+    use HasAuthenticatorTrait;
+    use HasUserTrait;
 
     /**
      * @var AuthUserRoleEnum
@@ -70,17 +68,16 @@ trait AuthUserUtils
         $userRoleClass = $this->getUserRoleEnumClass();
         $userAccountTypeClass = $this->getUserAccountTypeEnumClass();
 
-        $this->user = $this->createUserEntity($this->createTelegrambotUserEntity());
+        $this->authenticator = new TelegramAuthenticator($this->getTelegramUser(), $this->getUserRepository(),
+            $this->getTelegrambotUserRepository());
+
+        // We just create a UserEntity, don't perform full authentication.
+        /** @see AuthBotAccessUtils::assertUserHasAccessToMainRoute */
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $this->userEntity = $this->authenticator->authenticateUser();
+
         $this->userRole = new $userRoleClass($this->getRoleOfUserString($this->getUserEntity()));
         $this->userAccountType = new $userAccountTypeClass ($this->getAccountTypeOfUserString($this->getUserEntity()));
-    }
-
-    /**
-     * @return AuthUserEntity|null
-     */
-    protected function getUserEntity(): ?AuthUserEntity
-    {
-        return $this->user;
     }
 
     /**
@@ -97,29 +94,5 @@ trait AuthUserUtils
     protected function getUserAccountType(): AuthUserAccountTypeEnum
     {
         return $this->userAccountType;
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-
-    /**
-     * @return AuthTelegrambotUserEntity|null
-     */
-    private function createTelegrambotUserEntity(): ?AuthTelegrambotUserEntity
-    {
-        return $this->getTelegrambotUserRepository()->getByTelegramId($this->getTelegramUser()->getId());
-    }
-
-    /**
-     * @param AuthTelegrambotUserEntity|null $_user
-     *
-     * @return AuthUserEntity|null
-     */
-    private function createUserEntity(?AuthTelegrambotUserEntity $_user): ?AuthUserEntity
-    {
-        if ($_user === null) {
-            return null;
-        }
-
-        return $this->getUserRepository()->getByApiToken($_user->getApiToken());
     }
 }

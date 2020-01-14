@@ -29,14 +29,14 @@ class HttpApiProxy implements ApiProxyInterface
     /**
      * Execute query to the target api route.
      *
-     * @param AvailableRoute $_rote   Route.
-     * @param array          $_params Query parameters [optional].
+     * @param AvailableRoute $_rote    Route.
+     * @param array          $_params  Query parameters [optional].
+     * @param array|null     $_headers Query headers [optional].
      *
      * @return HttpResponse
-     *
      * @throws ApiProxyException
      */
-    public function query(AvailableRoute $_rote, array $_params = []): HttpResponse
+    public function query(AvailableRoute $_rote, array $_params = [], array $_headers = null): HttpResponse
     {
         $response = $this->httpQuery($_rote->getMethod(), $this->appUrl . '/' . $_rote->getRoute(), $_params);
         $httpCode = $response->getCode();

@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Security
 
 
+## [1.3.0] - 2020-01-14
+### Changed
+- AuthUserUtils::reInitUserParams() now creates a UserEntity using TelegramAuthenticator.
+- ApiProxyInterface::query() now contains an optional parameter to query headers.
+
 ## [1.2.3] - 2020-01-11
 ### Fixed
 - Fixed security vulnerabilities founded by GitHub in dependencies.
@@ -63,3 +68,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.0] - 2019-07-24
 ### Added
 - The library have been created.
+
+[1.3.0]: https://github.com/CaliforniaMountainSnake/longmantelegrambot-laravel-api-auth-system/compare/1.2.3...1.3.0

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "19eb48ce0eae5a492fa82c2be7ede84d",
+    "content-hash": "79a7c8ea4af8d7e060d06490b2c39540",
     "packages": [
         {
             "name": "californiamountainsnake/json-response",
@@ -227,16 +227,16 @@
         },
         {
             "name": "californiamountainsnake/simple-laravel-auth-system",
-            "version": "2.2.4",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CaliforniaMountainSnake/simple-laravel-auth-system.git",
-                "reference": "f05ce2551b8ad6d1279c713f175e4d3a59825938"
+                "reference": "df5353f6116966e63002681294d0f7302e14335c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CaliforniaMountainSnake/simple-laravel-auth-system/zipball/f05ce2551b8ad6d1279c713f175e4d3a59825938",
-                "reference": "f05ce2551b8ad6d1279c713f175e4d3a59825938",
+                "url": "https://api.github.com/repos/CaliforniaMountainSnake/simple-laravel-auth-system/zipball/df5353f6116966e63002681294d0f7302e14335c",
+                "reference": "df5353f6116966e63002681294d0f7302e14335c",
                 "shasum": ""
             },
             "require": {
@@ -248,6 +248,7 @@
                 "php": "^7.2"
             },
             "require-dev": {
+                "californiamountainsnake/laravel-database-test-case": "~0.1.0",
                 "ext-dom": "*",
                 "phpunit/phpunit": "^7.0"
             },
@@ -268,7 +269,7 @@
                 }
             ],
             "description": "A simple realisation of authentication and authorization for Laravel",
-            "time": "2019-07-29T11:02:14+00:00"
+            "time": "2020-01-14T12:01:44+00:00"
         },
         {
             "name": "doctrine/inflector",
